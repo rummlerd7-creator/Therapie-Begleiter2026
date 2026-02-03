@@ -205,14 +205,67 @@ function show(id) {
 <section id="protokolle">
   <div class="card">
     <h2>Protokolle</h2>
-    <ul>
-      <li>Tagesprotokoll</li>
-      <li>Stressprotokoll</li>
-      <li>Emotionssurfing</li>
-    </ul>
-    <p>(Interaktive Version folgt)</p>
+    <p>Trage deine täglichen Beobachtungen ein. Alles bleibt lokal auf deinem Gerät.</p>
+
+    <h3>Tagesprotokoll</h3>
+    <textarea id="tagebuch" placeholder="Notiere deinen Tag…"></textarea><br>
+    <button onclick="saveEntry('tagebuch')">Speichern</button>
+    <p id="tagebuchStatus" style="color:green;"></p>
+
+    <h3>Stressprotokoll</h3>
+    <textarea id="stresslog" placeholder="Belastende Situationen, Reaktion…"></textarea><br>
+    <button onclick="saveEntry('stresslog')">Speichern</button>
+    <p id="stresslogStatus" style="color:green;"></p>
+
+    <h3>Emotionssurfing</h3>
+    <textarea id="emotionssurfing" placeholder="Gefühl, Dauer, Beobachtung…"></textarea><br>
+    <button onclick="saveEntry('emotionssurfing')">Speichern</button>
+    <p id="emotionsStatus" style="color:green;"></p>
+
   </div>
 </section>
+
+<script>
+// Lädt vorherige Einträge
+window.onload = function() {
+  ['tagebuch', 'stresslog', 'emotionssurfing'].forEach(id => {
+    const val = localStorage.getItem(id);
+    if(val) document.getElementById(id).value = val;
+  });
+}
+
+// Speichern-Funktion
+function saveEntry(id) {
+  const text = document.getElementById(id).value;
+  localStorage.setItem(id, text);
+  document.getElementById(id + 'Status').textContent = "Gespeichert!";
+  setTimeout(() => { document.getElementById(id + 'Status').textContent = ""; }, 2000);
+}
+</script>
+
+<style>
+textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+button {
+  background: #2f7f7a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background: #24655f;
+}
+</style>
 
 <section id="unterstuetzung">
   <div class="card">
