@@ -5,50 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Therapie-Begleiter</title>
 <style>
-body { font-family: Arial, sans-serif; background-color:#f0f4f3; margin:0; padding:0;}
-header { background-color:#009688; color:#fff; text-align:center; padding:1em;}
+/* Grundlayout */
+body { font-family: Arial, sans-serif; background:#f7f9f8; margin:0; padding:0;}
+header { background:#009688; color:#fff; text-align:center; padding:1em; position:sticky; top:0; z-index:1000;}
 header h1 { margin:0.2em 0; font-size:1.8em; }
-nav { background-color:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; position:sticky; top:0; z-index:100; padding:0.5em;}
-nav a { color:#fff; text-decoration:none; font-weight:bold; margin:0.3em;}
-nav a:hover { text-decoration:underline; }
-main { padding:1em;}
-section { margin-bottom:1.5em;}
-section h2 { color:#00796B; margin-bottom:0.5em; font-size:1.4em;}
-.card { background:#fff; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin:0.5em 0; padding:1em; }
-textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; border-radius:5px; border:1px solid #ccc; padding:0.3em;}
+nav { background:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0.5em; position:sticky; top:3.5em; z-index:999; }
+nav button { background:#004D40; color:#fff; border:none; padding:0.5em 0.8em; border-radius:8px; margin:0.2em; cursor:pointer; font-weight:bold; }
+nav button:hover { background:#00695C; }
+main { padding:1em; max-width:800px; margin:auto;}
+section { margin-bottom:1.5em; }
+section h2 { color:#00796B; margin-bottom:0.5em; font-size:1.4em; border-bottom:2px solid #00796B; padding-bottom:0.2em; }
+.card { background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin:0.8em 0; padding:1em; transition:0.2s; }
+.card:hover { transform:translateY(-2px);}
+textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:60px; border-radius:5px; border:1px solid #ccc; padding:0.3em; resize:vertical; }
+
+/* Responsive */
+@media(max-width:600px){
+  header h1 { font-size:1.5em; }
+  nav { flex-direction:column; }
+  nav button { width:90%; margin:0.2em auto; }
+}
 </style>
 </head>
 <body>
 
 <header>
 <h1>Therapie-Begleiter</h1>
-<p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
+<p>DBT & Verhaltenstherapie Selbsthilfe</p>
 </header>
 
 <nav>
-<a href="#achtsamkeit">Achtsamkeit</a>
-<a href="#stresstoleranz">Stresstoleranz</a>
-<a href="#emotionsregulation">Emotionsregulation</a>
-<a href="#zwischenmenschlich">Zwischenmenschlich</a>
-<a href="#selbstwert">Selbstwert</a>
-<a href="#entspannung">Entspannung</a>
-<a href="#mehr">Mehr-Infos</a>
+<button onclick="scrollToSection('achtsamkeit')">Achtsamkeit</button>
+<button onclick="scrollToSection('stresstoleranz')">Stresstoleranz</button>
+<button onclick="scrollToSection('emotionsregulation')">Emotionsregulation</button>
+<button onclick="scrollToSection('zwischenmenschlich')">Zwischenmenschlich</button>
+<button onclick="scrollToSection('selbstwert')">Selbstwert</button>
+<button onclick="scrollToSection('entspannung')">Entspannung</button>
+<button onclick="scrollToSection('mehr')">Mehr-Infos</button>
 </nav>
 
 <main>
-
 <!-- ACHTSAMKEIT -->
 <section id="achtsamkeit">
 <h2>Achtsamkeit</h2>
 <div class="card">
 <h3>Beobachten ohne Bewertung</h3>
 <p>Moment wahrnehmen, Gedanken beobachten, Gefühle akzeptieren</p>
-<textarea placeholder="Notizen hier eintragen..."></textarea>
+<textarea id="txt_achtsamkeit_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 <div class="card">
 <h3>5-4-3-2-1 Wahrnehmungsübung</h3>
 <p>5 Dinge sehen, 4 Dinge fühlen, 3 Dinge hören, 2 Dinge riechen, 1 Ding schmecken</p>
-<textarea placeholder="Erfahrungen notieren..."></textarea>
+<textarea id="txt_achtsamkeit_2" placeholder="Erfahrungen notieren..."></textarea>
 </div>
 </section>
 
@@ -58,7 +66,7 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <div class="card">
 <h3>STOP-Technik</h3>
 <p>Stop: Handlung unterbrechen, Take a step back: Abstand gewinnen, Observe: Gefühle wahrnehmen, Proceed mindfully: bewusst reagieren</p>
-<textarea placeholder="Notizen eintragen..."></textarea>
+<textarea id="txt_stresstoleranz_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 </section>
 
@@ -68,12 +76,12 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <div class="card">
 <h3>Gefühle benennen</h3>
 <p>Gefühl erkennen, Intensität einschätzen, Körperliche Wahrnehmung</p>
-<textarea placeholder="Gefühle dokumentieren..."></textarea>
+<textarea id="txt_emotionsreg_1" placeholder="Gefühle dokumentieren..."></textarea>
 </div>
 <div class="card">
 <h3>Radikale Akzeptanz</h3>
 <p>Akzeptanz innerer Zustände, Nicht bewerten</p>
-<textarea placeholder="Gedanken zur Akzeptanz..."></textarea>
+<textarea id="txt_emotionsreg_2" placeholder="Gedanken zur Akzeptanz..."></textarea>
 </div>
 </section>
 
@@ -83,7 +91,7 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <div class="card">
 <h3>DEAR MAN – Ziele erreichen</h3>
 <p>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</p>
-<textarea placeholder="Erfahrungen notieren..."></textarea>
+<textarea id="txt_zwischenmensch_1" placeholder="Erfahrungen notieren..."></textarea>
 </div>
 </section>
 
@@ -93,12 +101,12 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <div class="card">
 <h3>Selbstwert stärken</h3>
 <p>Stärken aufschreiben, Erfolge reflektieren, Positive Selbstbotschaften</p>
-<textarea placeholder="Notizen hier eintragen..."></textarea>
+<textarea id="txt_selbstwert_1" placeholder="Notizen hier eintragen..."></textarea>
 </div>
 <div class="card">
 <h3>Selbstmitgefühl üben</h3>
 <p>Fehler akzeptieren, Sich freundlich ansprechen, Selbstlob notieren</p>
-<textarea placeholder="Erfahrungen aufschreiben..."></textarea>
+<textarea id="txt_selbstwert_2" placeholder="Erfahrungen aufschreiben..."></textarea>
 </div>
 </section>
 
@@ -108,12 +116,12 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <div class="card">
 <h3>Progressive Muskelrelaxation</h3>
 <p>Muskelgruppen anspannen, Muskelgruppen entspannen, Wahrnehmung notieren</p>
-<textarea placeholder="Notizen eintragen..."></textarea>
+<textarea id="txt_entspannung_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 <div class="card">
 <h3>Atem- & Meditationstechniken</h3>
 <p>Tiefes Ein- und Ausatmen, Gedanken ziehen lassen, Körperwahrnehmung</p>
-<textarea placeholder="Notizen & Gefühle dokumentieren..."></textarea>
+<textarea id="txt_entspannung_2" placeholder="Notizen & Gefühle dokumentieren..."></textarea>
 </div>
 </section>
 
@@ -122,12 +130,17 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; borde
 <h2>Mehr-Infos</h2>
 <div class="card">
 <p>Sprache wählen, Spenden (Ko-fi, PayPal, Bank), Datenschutz, Impressum</p>
-<textarea placeholder="Notizen..."></textarea>
+<textarea id="txt_mehr" placeholder="Notizen..."></textarea>
 </div>
 </section>
 
-<!-- SCRIPT für Notizen -->
 <script>
+// Scroll-Funktion für Navigation
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// Notizen lokal speichern & laden
 function saveNotes(){
   document.querySelectorAll('textarea').forEach(txt=>{
     localStorage.setItem(txt.id, txt.value);
@@ -143,6 +156,5 @@ window.onload = loadNotes;
 window.onbeforeunload = saveNotes;
 </script>
 
-</main>
 </body>
 </html>
