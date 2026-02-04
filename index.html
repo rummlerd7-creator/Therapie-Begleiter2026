@@ -133,11 +133,11 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:60px; borde
 </div>
 </section>
 
-<!-- MEHR INFOS -->
+<!-- MEHR INFOS / SPENDEN -->
 <section id="mehr">
 <h2 id="secMehr">Mehr-Infos</h2>
 <div class="card">
-<p id="mehrtxt">Sprache wählen, Spenden (Ko-fi, PayPal, Bank), Datenschutz, Impressum</p>
+<p id="mehrtxt">Unterstütze die App: <a href="https://www.paypal.com/donate/?hosted_button_id=4F666LGY3CYVG" target="_blank">PayPal-Spende</a></p>
 <textarea id="txt_mehr" placeholder="Notizen..."></textarea>
 </div>
 </section>
@@ -151,65 +151,26 @@ function saveNotes(){ document.querySelectorAll('textarea').forEach(t=>localStor
 function loadNotes(){ document.querySelectorAll('textarea').forEach(t=>{ const v=localStorage.getItem(t.id); if(v) t.value=v; }); }
 window.onload = loadNotes;
 
-// Übersetzungen für alle Sprachen
+// Übersetzungen
 const translations = {
-de:{ /* Deutsch siehe oben, bleibt unverändert */ },
-en:{ /* Englisch siehe oben */ },
-fr:{ /* Französisch siehe oben */ },
-pt:{ /* Portugiesisch siehe oben */ },
-es:{ /* Spanisch siehe oben */ },
-ru:{ /* Russische Übersetzungen hier einfügen */ },
-zh:{ /* Chinesische Übersetzungen hier einfügen */ }
+  de: { /* Inhalte bleiben wie oben */ },
+  en: { /* Englische Übersetzungen hier einfügen */ },
+  fr: { /* Französische Übersetzungen */ },
+  pt: { /* Portugiesisch */ },
+  es: { /* Spanisch */ },
+  ru: { /* Russisch */ },
+  zh: { /* Chinesisch */ }
 };
 
 function changeLanguage(lang){
   const t = translations[lang];
   if(!t) return;
-  document.getElementById('title').textContent = t.title;
-  document.getElementById('subtitle').textContent = t.subtitle;
-  document.getElementById('btnAchtsamkeit').textContent = t.btnAchtsamkeit;
-  document.getElementById('btnStresstoleranz').textContent = t.btnStresstoleranz;
-  document.getElementById('btnEmotionsregulation').textContent = t.btnEmotionsregulation;
-  document.getElementById('btnZwischenmenschlich').textContent = t.btnZwischenmenschlich;
-  document.getElementById('btnSelbstwert').textContent = t.btnSelbstwert;
-  document.getElementById('btnEntspannung').textContent = t.btnEntspannung;
-  document.getElementById('btnMehr').textContent = t.btnMehr;
-
-  document.getElementById('secAchtsamkeit').textContent = t.secAchtsamkeit;
-  document.getElementById('achts1').textContent = t.achts1;
-  document.getElementById('achts1txt').textContent = t.achts1txt;
-  document.getElementById('achts2').textContent = t.achts2;
-  document.getElementById('achts2txt').textContent = t.achts2txt;
-
-  document.getElementById('secStresstoleranz').textContent = t.secStresstoleranz;
-  document.getElementById('stress1').textContent = t.stress1;
-  document.getElementById('stress1txt').textContent = t.stress1txt;
-
-  document.getElementById('secEmotionsregulation').textContent = t.secEmotionsregulation;
-  document.getElementById('emo1').textContent = t.emo1;
-  document.getElementById('emo1txt').textContent = t.emo1txt;
-  document.getElementById('emo2').textContent = t.emo2;
-  document.getElementById('emo2txt').textContent = t.emo2txt;
-
-  document.getElementById('secZwischenmenschlich').textContent = t.secZwischenmenschlich;
-  document.getElementById('zwisch1').textContent = t.zwisch1;
-  document.getElementById('zwisch1txt').textContent = t.zwisch1txt;
-
-  document.getElementById('secSelbstwert').textContent = t.secSelbstwert;
-  document.getElementById('sw1').textContent = t.sw1;
-  document.getElementById('sw1txt').textContent = t.sw1txt;
-  document.getElementById('sw2').textContent = t.sw2;
-  document.getElementById('sw2txt').textContent = t.sw2txt;
-
-  document.getElementById('secEntspannung').textContent = t.secEntspannung;
-  document.getElementById('ent1').textContent = t.ent1;
-  document.getElementById('ent1txt').textContent = t.ent1txt;
-  document.getElementById('ent2').textContent = t.ent2;
-  document.getElementById('ent2txt').textContent = t.ent2txt;
-
-  document.getElementById('secMehr').textContent = t.secMehr;
-  document.getElementById('mehrtxt').textContent = t.mehrtxt;
+  for(let id in t){
+    const el = document.getElementById(id);
+    if(el) el.innerHTML = t[id];
+  }
 }
 </script>
+
 </body>
-  </html>
+                                       </html>
