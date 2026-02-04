@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -138,61 +138,8 @@ input[type="checkbox"]:checked + label { text-decoration:line-through; color:#55
 </details>
 </div>
 
-<!-- ===== SELBSTWERT ===== -->
-<section id="selbstwert">
-<h2><i class="fa-solid fa-star"></i> Selbstwert & Selbstbewusstsein</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-heart"></i> Selbstwert stärken</summary>
-<ul>
-<li><input type="checkbox" id="chk_selbstwert_1_1" onchange="saveState(this)"><label for="chk_selbstwert_1_1">Stärken aufschreiben</label></li>
-<li><input type="checkbox" id="chk_selbstwert_1_2" onchange="saveState(this)"><label for="chk_selbstwert_1_2">Erfolge reflektieren</label></li>
-<li><input type="checkbox" id="chk_selbstwert_1_3" onchange="saveState(this)"><label for="chk_selbstwert_1_3">Positive Selbstbotschaften</label></li>
-</ul>
-<textarea id="txt_selbstwert_1" placeholder="Notizen hier eintragen..."></textarea>
-</details>
-</div>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-hand-holding-heart"></i> Selbstmitgefühl üben</summary>
-<ul>
-<li><input type="checkbox" id="chk_selbstwert_2_1" onchange="saveState(this)"><label for="chk_selbstwert_2_1">Fehler akzeptieren</label></li>
-<li><input type="checkbox" id="chk_selbstwert_2_2" onchange="saveState(this)"><label for="chk_selbstwert_2_2">Sich freundlich ansprechen</label></li>
-<li><input type="checkbox" id="chk_selbstwert_2_3" onchange="saveState(this)"><label for="chk_selbstwert_2_3">Selbstlob notieren</label></li>
-</ul>
-<textarea id="txt_selbstwert_2" placeholder="Erfahrungen aufschreiben..."></textarea>
-</details>
-</div>
-</section>
+<!-- Selbstwert & Entspannung kommen gleich in weiteren Codeblock -->
 
-<!-- ===== ENTSPANNUNG ===== -->
-<section id="entspannung">
-<h2><i class="fa-solid fa-spa"></i> Entspannung & Meditation</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-bed"></i> Progressive Muskelrelaxation</summary>
-<ul>
-<li><input type="checkbox" id="chk_entspannung_1_1" onchange="saveState(this)"><label for="chk_entspannung_1_1">Muskelgruppen anspannen</label></li>
-<li><input type="checkbox" id="chk_entspannung_1_2" onchange="saveState(this)"><label for="chk_entspannung_1_2">Muskelgruppen entspannen</label></li>
-<li><input type="checkbox" id="chk_entspannung_1_3" onchange="saveState(this)"><label for="chk_entspannung_1_3">Wahrnehmung notieren</label></li>
-</ul>
-<textarea id="txt_entspannung_1" placeholder="Notizen eintragen..."></textarea>
-</details>
-</div>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-person-meditating"></i> Atem- & Meditationstechniken</summary>
-<ul>
-<li><input type="checkbox" id="chk_entspannung_2_1" onchange="saveState(this)"><label for="chk_entspannung_2_1">Tiefes Ein- und Ausatmen</label></li>
-<li><input type="checkbox" id="chk_entspannung_2_2" onchange="saveState(this)"><label for="chk_entspannung_2_2">Gedanken ziehen lassen</label></li>
-<li><input type="checkbox" id="chk_entspannung_2_3" onchange="saveState(this)"><label for="chk_entspannung_2_3">Körperwahrnehmung</label></li>
-</ul>
-<textarea id="txt_entspannung_2" placeholder="Notizen & Gefühle dokumentieren..."></textarea>
-</details>
-</div>
-</section>
-
-<!-- ===== SCRIPT ===== -->
 <script>
 function saveState(element){
   const id = element.id;
@@ -216,4 +163,4 @@ window.onload=loadState;
 </script>
 
 </body>
-  </html>
+</html>
