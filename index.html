@@ -110,67 +110,7 @@ function show(id) {
   </div>
 </section>
 
-<section id="dbt">
-  <div class="card">
-    <h2>DBT & Stabilisierung</h2>
 
-    <details>
-      <summary>Emotionsregulation</summary>
-      <p><strong>Ziel:</strong> Emotionen verstehen, benennen und regulieren.</p>
-      <ul>
-        <li><strong>Gefühle benennen:</strong> Schreibe alles auf, was du gerade fühlst, ohne Bewertung.</li>
-        <li><strong>Opposite Action:</strong> Handle bewusst entgegengesetzt zu einem impulsiven Gefühl.</li>
-        <li><strong>Emotionssurfing:</strong> Beobachte ein starkes Gefühl für 90 Sekunden ohne Handlung.</li>
-      </ul>
-      <p><strong>Wann anwenden:</strong> Bei intensiven Gefühlen, innerer Unruhe oder Impulsen.</p>
-    </details>
-
-    <details>
-      <summary>Stresstoleranz</summary>
-      <p><strong>Ziel:</strong> Krisen bewältigen, ohne sich selbst zu schädigen.</p>
-      <ul>
-        <li><strong>Atemtechnik:</strong> 4 Sekunden einatmen, 4 Sekunden halten, 4 Sekunden ausatmen, 4 Sekunden halten – 5 Wiederholungen.</li>
-        <li><strong>Kälte-Anker:</strong> Hände 30–60 Sekunden in kaltes Wasser tauchen, bewusst den Atem spüren.</li>
-        <li><strong>Ablenkung:</strong> Kurzer Spaziergang, Musik hören oder Bewegung.</li>
-      </ul>
-      <p><strong>Wann anwenden:</strong> Bei starker Anspannung oder Überflutung.</p>
-    </details>
-
-    <details>
-      <summary>Achtsamkeit</summary>
-      <p><strong>Ziel:</strong> Moment bewusst wahrnehmen, Gedanken beobachten ohne Bewertung.</p>
-      <ul>
-        <li><strong>5-Sinne-Übung:</strong> Nenne je 3 Dinge, die du siehst, hörst, fühlst, riechst und schmeckst.</li>
-        <li><strong>Gedanken beobachten:</strong> Schreibe einen Gedanken auf, beobachte ihn, lasse ihn ziehen.</li>
-        <li><strong>Kurze Atemmeditation:</strong> 2–3 Minuten den Atem beobachten, nicht verändern.</li>
-      </ul>
-      <p><strong>Wann anwenden:</strong> Bei Grübeln, Unruhe oder innerer Ablenkung.</p>
-    </details>
-
-    <details>
-      <summary>Zwischenmenschliche Fertigkeiten</summary>
-      <p><strong>Ziel:</strong> Beziehungen stabil gestalten und eigene Bedürfnisse wahren.</p>
-      <ul>
-        <li><strong>Grenzen setzen:</strong> Formuliere klar, was du willst und was nicht.</li>
-        <li><strong>Um Hilfe bitten:</strong> Situation beschreiben → Wunsch äußern → Konsequenz erklären.</li>
-        <li><strong>Nein sagen:</strong> Kurz, klar, ohne Rechtfertigung.</li>
-      </ul>
-      <p><strong>Wann anwenden:</strong> Bei Konflikten, Überforderung oder Unsicherheit.</p>
-    </details>
-
-    <details>
-      <summary>Selbstwert & Stabilisierung</summary>
-      <p><strong>Ziel:</strong> Selbstachtung fördern und eigene Ressourcen aktivieren.</p>
-      <ul>
-        <li><strong>Realitätsabgleich:</strong> Negative Gedanken aufschreiben und Fakten prüfen.</li>
-        <li><strong>Ressourcenaktivierung:</strong> Liste 3 Fähigkeiten oder Erfolge auf, die dir Kraft geben.</li>
-        <li><strong>Tagesrückblick:</strong> Notiere 1 positives Erlebnis pro Tag.</li>
-      </ul>
-      <p><strong>Wann anwenden:</strong> Täglich oder nach belastenden Situationen.</p>
-    </details>
-
-  </div>
-</section>
 
 <section id="screening">
   <div class="card">
@@ -221,6 +161,118 @@ function show(id) {
     <textarea id="emotionssurfing" placeholder="Gefühl, Dauer, Beobachtung…"></textarea><br>
     <button onclick="saveEntry('emotionssurfing')">Speichern</button>
     <p id="emotionsStatus" style="color:green;"></p>
+
+  </div>
+
+  <section id="dbt">
+  <div class="card">
+    <h2>Dialektisch-Behaviorale Therapie (DBT)</h2>
+    <p>
+      DBT hilft dabei, intensive Gefühle besser zu verstehen, zu regulieren und
+      handlungsfähig zu bleiben – besonders in belastenden oder konflikthaften Situationen.
+      Die Übungen sind freiwillig, alltagsnah und ersetzen keine Therapie.
+    </p>
+
+    <details>
+      <summary><strong>1. Achtsamkeit</strong></summary>
+      <p><em>Ziel:</em> Wahrnehmen, was gerade da ist – ohne Bewertung.</p>
+
+      <h4>Übung: 3-Minuten-Atemanker</h4>
+      <ol>
+        <li>Setze oder stelle dich stabil hin.</li>
+        <li>Richte deine Aufmerksamkeit auf den Atem.</li>
+        <li>Spüre 3 Minuten lang nur Ein- und Ausatmen.</li>
+      </ol>
+
+      <h4>Übung: Wahrnehmen – Benennen – Zurückkehren</h4>
+      <ul>
+        <li>Was nehme ich gerade wahr?</li>
+        <li>Wie nenne ich es sachlich?</li>
+        <li>Ich kehre zur aktuellen Tätigkeit zurück.</li>
+      </ul>
+
+      <p><strong>Reflexion:</strong> Was hat sich durch das bewusste Wahrnehmen verändert?</p>
+    </details>
+
+    <details>
+      <summary><strong>2. Stresstoleranz</strong></summary>
+      <p><em>Ziel:</em> Belastende Zustände überstehen, ohne sich selbst zu schaden.</p>
+
+      <h4>Übung: Temperaturwechsel</h4>
+      <p>
+        Kaltes Wasser ins Gesicht oder kalter Gegenstand in die Hand.
+        Kurz, intensiv, bewusst.
+      </p>
+
+      <h4>Übung: 5-4-3-2-1</h4>
+      <ul>
+        <li>5 Dinge sehen</li>
+        <li>4 Dinge fühlen</li>
+        <li>3 Dinge hören</li>
+        <li>2 Dinge riechen</li>
+        <li>1 Sache schmecken</li>
+      </ul>
+
+      <p><strong>Hinweis:</strong> Ziel ist nicht Beruhigung, sondern Stabilität.</p>
+    </details>
+
+    <details>
+      <summary><strong>3. Emotionsregulation</strong></summary>
+      <p><em>Ziel:</em> Gefühle verstehen, statt von ihnen gesteuert zu werden.</p>
+
+      <h4>Übung: Gefühlsanalyse</h4>
+      <ul>
+        <li>Auslösende Situation</li>
+        <li>Gedanken</li>
+        <li>Gefühl (Name + Intensität)</li>
+        <li>Körperreaktion</li>
+        <li>Handlungsimpuls</li>
+      </ul>
+
+      <h4>Übung: Gegensteuernde Handlung</h4>
+      <p>
+        Frage dich: „Was würde das Gefühl wollen – und was wäre langfristig hilfreich?“
+      </p>
+
+      <p><strong>Reflexion:</strong> Welche Emotionen kehren häufig wieder?</p>
+    </details>
+
+    <details>
+      <summary><strong>4. Zwischenmenschliche Fertigkeiten</strong></summary>
+      <p><em>Ziel:</em> Beziehungen klar, respektvoll und selbstschützend gestalten.</p>
+
+      <h4>Übung: DEAR-MAN (vereinfacht)</h4>
+      <ul>
+        <li><strong>D</strong>eskribieren: sachlich bleiben</li>
+        <li><strong>E</strong>mpfinden benennen</li>
+        <li><strong>A</strong>nliegen klar äußern</li>
+        <li><strong>R</strong>espektvoll bleiben</li>
+      </ul>
+
+      <h4>Mini-Training</h4>
+      <p>Formuliere dein Anliegen in einem Satz, ohne Rechtfertigung.</p>
+
+      <p><strong>Reflexion:</strong> Was fällt mir daran schwer?</p>
+    </details>
+
+    <details>
+      <summary><strong>5. Selbstwert & Akzeptanz</strong></summary>
+      <p><em>Ziel:</em> Sich selbst ernst nehmen – unabhängig von Leistung oder Zustimmung.</p>
+
+      <h4>Übung: Realistische Selbstannahme</h4>
+      <ul>
+        <li>Was kann ich gut?</li>
+        <li>Was fällt mir schwer?</li>
+        <li>Beides darf gleichzeitig existieren.</li>
+      </ul>
+
+      <h4>Übung: Selbstrespekt-Satz</h4>
+      <p>
+        „Auch wenn ich mich gerade unsicher fühle, darf ich Grenzen setzen.“
+      </p>
+
+      <p><strong>Hinweis:</strong> Akzeptanz ≠ Aufgeben.</p>
+    </details>
 
   </div>
 </section>
