@@ -1,226 +1,219 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Therapie-Begleiter</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f7f9f8; margin: 0; padding: 0; }
-    header, nav { background-color: #009688; color: #fff; padding: 1em; text-align: center; }
-    h1, h2 { color: #00796B; }
-    section { margin: 1em; padding: 1em; background: #fff; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    details { margin-bottom: 0.5em; }
-    summary { font-weight: bold; cursor: pointer; }
-    ul { margin: 0.5em 0 0.5em 1.2em; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therapie-Begleiter</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body { font-family: 'Arial', sans-serif; background-color: #f0f4f3; margin:0; padding:0; }
+header { background-color:#009688; color:#fff; text-align:center; padding:1em;}
+header h1 { margin:0.2em 0; font-size:1.8em; }
+nav { background-color:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; position:sticky; top:0; z-index:100; padding:0.5em;}
+nav a { color:#fff; text-decoration:none; font-weight:bold; margin:0.3em;}
+nav a:hover { text-decoration:underline; }
+main { padding:1em; }
+section { margin-bottom:1.5em; }
+section h2 { color:#00796B; margin-bottom:0.5em; display:flex; align-items:center; gap:0.5em; font-size:1.4em;}
+.card { background:#fff; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin:0.5em 0; padding:1em; transition: transform 0.2s; }
+.card:hover { transform: translateY(-2px);}
+details { margin-bottom:0.8em;}
+summary { font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:0.5em; }
+summary::marker { content: ""; } 
+ul { margin:0.5em 0 0.5em 1.2em; padding-left:0;}
+li { margin-bottom:0.3em; display:flex; align-items:center; gap:0.3em;}
+input[type="checkbox"] { margin-right:0.5em; }
+textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; border-radius:5px; border:1px solid #ccc; padding:0.3em; }
+input[type="checkbox"]:checked + label { text-decoration:line-through; color:#555;}
+@media (max-width:600px) { nav { flex-direction:column; text-align:center;} section h2 { font-size:1.2em; } }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Therapie-Begleiter</h1>
-  <p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
+<h1>Therapie-Begleiter</h1>
+<p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
 </header>
+
+<nav>
+<a href="#achtsamkeit">Achtsamkeit</a>
+<a href="#stresstoleranz">Stresstoleranz</a>
+<a href="#emotionsregulation">Emotionsregulation</a>
+<a href="#zwischenmenschlich">Zwischenmenschlich</a>
+<a href="#selbstwert">Selbstwert</a>
+<a href="#entspannung">Entspannung</a>
+<a href="#mehr">Mehr-Infos</a>
+</nav>
 
 <main>
 
-<!-- =================== DBT-BEREICH =================== -->
+<!-- ===== ACHTSAMKEIT ===== -->
+<section id="achtsamkeit">
+<h2><i class="fa-solid fa-eye"></i> Achtsamkeit</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-circle-check"></i> Beobachten ohne Bewertung</summary>
+<ul>
+<li><input type="checkbox" id="chk_achtsamkeit_1_1" onchange="saveState(this)"><label for="chk_achtsamkeit_1_1">Moment wahrnehmen</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_1_2" onchange="saveState(this)"><label for="chk_achtsamkeit_1_2">Gedanken beobachten</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_1_3" onchange="saveState(this)"><label for="chk_achtsamkeit_1_3">Gefühle akzeptieren</label></li>
+</ul>
+<textarea id="txt_achtsamkeit_1" placeholder="Notizen hier eintragen..."></textarea>
+</details>
+</div>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-hand-pointer"></i> 5-4-3-2-1 Wahrnehmungsübung</summary>
+<ul>
+<li><input type="checkbox" id="chk_achtsamkeit_2_1" onchange="saveState(this)"><label for="chk_achtsamkeit_2_1">5 Dinge sehen</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_2_2" onchange="saveState(this)"><label for="chk_achtsamkeit_2_2">4 Dinge fühlen</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_2_3" onchange="saveState(this)"><label for="chk_achtsamkeit_2_3">3 Dinge hören</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_2_4" onchange="saveState(this)"><label for="chk_achtsamkeit_2_4">2 Dinge riechen</label></li>
+<li><input type="checkbox" id="chk_achtsamkeit_2_5" onchange="saveState(this)"><label for="chk_achtsamkeit_2_5">1 Ding schmecken</label></li>
+</ul>
+<textarea id="txt_achtsamkeit_2" placeholder="Erfahrungen notieren..."></textarea>
+</details>
+</div>
 
-<section class="dbt-module">
-  <h2>Achtsamkeit</h2>
-
-  <details>
-    <summary>Worum geht es?</summary>
-    <p>Den Moment bewusst wahrnehmen ohne zu bewerten. Gedanken, Gefühle und Körperempfindungen werden beobachtet, ohne sie zu ändern.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Beobachten ohne Bewertung</summary>
-    <p>Setze dich ruhig hin, atme bewusst ein und aus. Beobachte Gedanken wie Wolken, lasse sie kommen und gehen.</p>
-  </details>
-
-  <details>
-    <summary>Übung: 5-4-3-2-1 Wahrnehmungsübung</summary>
-    <ul>
-      <li>5 Dinge sehen</li>
-      <li>4 Dinge fühlen</li>
-      <li>3 Dinge hören</li>
-      <li>2 Dinge riechen</li>
-      <li>1 Ding schmecken</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>Übung: Atembeobachtung</summary>
-    <p>Auf den Atem achten, Ein- und Ausstrom bewusst spüren. Ablenkungen sanft zurück zum Atem lenken.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Gedanken beobachten</summary>
-    <p>3 Gedanken notieren, ohne zu bewerten, nur beobachten.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Body-Scan</summary>
-    <p>Lege dich hin, Augen schließen. Wandere gedanklich vom Kopf bis Fuß und spüre jeden Bereich ohne Bewertung.</p>
-  </details>
+<!-- ===== STRESSTOLERANZ ===== -->
+<section id="stresstoleranz">
+<h2><i class="fa-solid fa-handshake-simple"></i> Stresstoleranz</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-stop"></i> STOP-Technik</summary>
+<ul>
+<li><input type="checkbox" id="chk_stresstoleranz_1_1" onchange="saveState(this)"><label for="chk_stresstoleranz_1_1">Stop: Handlung unterbrechen</label></li>
+<li><input type="checkbox" id="chk_stresstoleranz_1_2" onchange="saveState(this)"><label for="chk_stresstoleranz_1_2">Take a step back: Abstand gewinnen</label></li>
+<li><input type="checkbox" id="chk_stresstoleranz_1_3" onchange="saveState(this)"><label for="chk_stresstoleranz_1_3">Observe: Gefühle wahrnehmen</label></li>
+<li><input type="checkbox" id="chk_stresstoleranz_1_4" onchange="saveState(this)"><label for="chk_stresstoleranz_1_4">Proceed mindfully: bewusst reagieren</label></li>
+</ul>
+<textarea id="txt_stresstoleranz_1" placeholder="Notizen eintragen..."></textarea>
+</details>
+</div>
 </section>
 
-<section class="dbt-module">
-  <h2>Stresstoleranz</h2>
-
-  <details>
-    <summary>Worum geht es?</summary>
-    <p>Belastende Situationen aushalten, ohne impulsiv zu reagieren.</p>
-  </details>
-
-  <details>
-    <summary>Übung: STOP-Technik</summary>
-    <ul>
-      <li>Stop: Handlung unterbrechen</li>
-      <li>Take a step back: Abstand gewinnen</li>
-      <li>Observe: Gefühle und Gedanken wahrnehmen</li>
-      <li>Proceed mindfully: bewusst reagieren</li>
-    </ul>
-  </details>
+<!-- ===== EMOTIONSREGULATION ===== -->
+<section id="emotionsregulation">
+<h2><i class="fa-solid fa-heart-pulse"></i> Emotionsregulation</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-face-smile"></i> Gefühle benennen</summary>
+<ul>
+<li><input type="checkbox" id="chk_emotionsreg_1_1" onchange="saveState(this)"><label for="chk_emotionsreg_1_1">Gefühl erkennen</label></li>
+<li><input type="checkbox" id="chk_emotionsreg_1_2" onchange="saveState(this)"><label for="chk_emotionsreg_1_2">Intensität einschätzen</label></li>
+<li><input type="checkbox" id="chk_emotionsreg_1_3" onchange="saveState(this)"><label for="chk_emotionsreg_1_3">Körperliche Wahrnehmung</label></li>
+</ul>
+<textarea id="txt_emotionsreg_1" placeholder="Gefühle dokumentieren..."></textarea>
+</details>
+</div>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-hands-holding-circle"></i> Radikale Akzeptanz</summary>
+<ul>
+<li><input type="checkbox" id="chk_emotionsreg_2_1" onchange="saveState(this)"><label for="chk_emotionsreg_2_1">Akzeptanz innerer Zustände</label></li>
+<li><input type="checkbox" id="chk_emotionsreg_2_2" onchange="saveState(this)"><label for="chk_emotionsreg_2_2">Nicht bewerten</label></li>
+</ul>
+<textarea id="txt_emotionsreg_2" placeholder="Gedanken zur Akzeptanz..."></textarea>
+</details>
+</div>
 </section>
 
-<section class="dbt-module">
-  <h2>Emotionsregulation</h2>
+<!-- ===== ZWISCHENMENSCHLICH ===== -->
+<section id="zwischenmenschlich">
+<h2><i class="fa-solid fa-users"></i> Zwischenmenschliche Fertigkeiten</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-bullseye"></i> DEAR MAN – Ziele erreichen</summary>
+<ul>
+<li><input type="checkbox" id="chk_zwischenmensch_1_1" onchange="saveState(this)"><label for="chk_zwischenmensch_1_1">Describe</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_2" onchange="saveState(this)"><label for="chk_zwischenmensch_1_2">Express</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_3" onchange="saveState(this)"><label for="chk_zwischenmensch_1_3">Assert</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_4" onchange="saveState(this)"><label for="chk_zwischenmensch_1_4">Reinforce</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_5" onchange="saveState(this)"><label for="chk_zwischenmensch_1_5">Mindful</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_6" onchange="saveState(this)"><label for="chk_zwischenmensch_1_6">Appear confident</label></li>
+<li><input type="checkbox" id="chk_zwischenmensch_1_7" onchange="saveState(this)"><label for="chk_zwischenmensch_1_7">Negotiate</label></li>
+</ul>
+<textarea id="txt_zwischenmensch_1" placeholder="Erfahrungen notieren..."></textarea>
+</details>
+</div>
 
-  <details>
-    <summary>Worum geht es?</summary>
-    <p>Gefühle verstehen, benennen und konstruktiv beeinflussen.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Gefühle benennen</summary>
-    <ul>
-      <li>Was fühle ich gerade?</li>
-      <li>Intensität (0–100)?</li>
-      <li>Wo im Körper spüre ich es?</li>
-      <li>Was hat das Gefühl ausgelöst?</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>Übung: Radikale Akzeptanz</summary>
-    <p>„Das ist gerade so.“ Gefühle anerkennen, ohne Widerstand.</p>
-  </details>
+<!-- ===== SELBSTWERT ===== -->
+<section id="selbstwert">
+<h2><i class="fa-solid fa-star"></i> Selbstwert & Selbstbewusstsein</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-heart"></i> Selbstwert stärken</summary>
+<ul>
+<li><input type="checkbox" id="chk_selbstwert_1_1" onchange="saveState(this)"><label for="chk_selbstwert_1_1">Stärken aufschreiben</label></li>
+<li><input type="checkbox" id="chk_selbstwert_1_2" onchange="saveState(this)"><label for="chk_selbstwert_1_2">Erfolge reflektieren</label></li>
+<li><input type="checkbox" id="chk_selbstwert_1_3" onchange="saveState(this)"><label for="chk_selbstwert_1_3">Positive Selbstbotschaften</label></li>
+</ul>
+<textarea id="txt_selbstwert_1" placeholder="Notizen hier eintragen..."></textarea>
+</details>
+</div>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-hand-holding-heart"></i> Selbstmitgefühl üben</summary>
+<ul>
+<li><input type="checkbox" id="chk_selbstwert_2_1" onchange="saveState(this)"><label for="chk_selbstwert_2_1">Fehler akzeptieren</label></li>
+<li><input type="checkbox" id="chk_selbstwert_2_2" onchange="saveState(this)"><label for="chk_selbstwert_2_2">Sich freundlich ansprechen</label></li>
+<li><input type="checkbox" id="chk_selbstwert_2_3" onchange="saveState(this)"><label for="chk_selbstwert_2_3">Selbstlob notieren</label></li>
+</ul>
+<textarea id="txt_selbstwert_2" placeholder="Erfahrungen aufschreiben..."></textarea>
+</details>
+</div>
 </section>
 
-<section class="dbt-module">
-  <h2>Zwischenmenschliche Fertigkeiten</h2>
-
-  <details>
-    <summary>Worum geht es?</summary>
-    <p>Beziehungen gestalten, Bedürfnisse vertreten, Selbstrespekt wahren.</p>
-  </details>
-
-  <details>
-    <summary>DEAR MAN – Ziele erreichen</summary>
-    <ul>
-      <li><strong>D</strong> – Describe: Sachlich beschreiben</li>
-      <li><strong>E</strong> – Express: Gefühle ausdrücken</li>
-      <li><strong>A</strong> – Assert: Klar sagen, was du willst</li>
-      <li><strong>R</strong> – Reinforce: Nutzen aufzeigen</li>
-      <li><strong>M</strong> – Mindful: Beim Thema bleiben</li>
-      <li><strong>A</strong> – Appear confident</li>
-      <li><strong>N</strong> – Negotiate: Verhandlungsbereit</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>GIVE – Beziehung erhalten</summary>
-    <ul>
-      <li><strong>G</strong> – Gentle: Freundlich bleiben</li>
-      <li><strong>I</strong> – Interested: Interesse zeigen</li>
-      <li><strong>V</strong> – Validate: Gefühle anerkennen</li>
-      <li><strong>E</strong> – Easy manner: Locker bleiben</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>FAST – Selbstrespekt wahren</summary>
-    <ul>
-      <li><strong>F</strong> – Fair: Fair zu dir und anderen</li>
-      <li><strong>A</strong> – Apologies: Nicht übermäßig entschuldigen</li>
-      <li><strong>S</strong> – Stick to values: Bei Werten bleiben</li>
-      <li><strong>T</strong> – Truthful: Ehrlich bleiben</li>
-    </ul>
-  </details>
+<!-- ===== ENTSPANNUNG ===== -->
+<section id="entspannung">
+<h2><i class="fa-solid fa-spa"></i> Entspannung & Meditation</h2>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-bed"></i> Progressive Muskelrelaxation</summary>
+<ul>
+<li><input type="checkbox" id="chk_entspannung_1_1" onchange="saveState(this)"><label for="chk_entspannung_1_1">Muskelgruppen anspannen</label></li>
+<li><input type="checkbox" id="chk_entspannung_1_2" onchange="saveState(this)"><label for="chk_entspannung_1_2">Muskelgruppen entspannen</label></li>
+<li><input type="checkbox" id="chk_entspannung_1_3" onchange="saveState(this)"><label for="chk_entspannung_1_3">Wahrnehmung notieren</label></li>
+</ul>
+<textarea id="txt_entspannung_1" placeholder="Notizen eintragen..."></textarea>
+</details>
+</div>
+<div class="card">
+<details>
+<summary><i class="fa-solid fa-person-meditating"></i> Atem- & Meditationstechniken</summary>
+<ul>
+<li><input type="checkbox" id="chk_entspannung_2_1" onchange="saveState(this)"><label for="chk_entspannung_2_1">Tiefes Ein- und Ausatmen</label></li>
+<li><input type="checkbox" id="chk_entspannung_2_2" onchange="saveState(this)"><label for="chk_entspannung_2_2">Gedanken ziehen lassen</label></li>
+<li><input type="checkbox" id="chk_entspannung_2_3" onchange="saveState(this)"><label for="chk_entspannung_2_3">Körperwahrnehmung</label></li>
+</ul>
+<textarea id="txt_entspannung_2" placeholder="Notizen & Gefühle dokumentieren..."></textarea>
+</details>
+</div>
 </section>
 
-<!-- =================== SELBSTSTÄRKUNG =================== -->
+<!-- ===== SCRIPT ===== -->
+<script>
+function saveState(element){
+  const id = element.id;
+  const txtId = element.id.replace("chk","txt");
+  localStorage.setItem(id, element.checked);
+  const txtEl = document.getElementById(txtId);
+  if(txtEl) localStorage.setItem(txtId, txtEl.value);
+}
 
-<section class="self-module">
-  <h2>Selbstwert & Selbstbewusstsein</h2>
+function loadState(){
+  document.querySelectorAll('input[type="checkbox"]').forEach(chk=>{
+    const val = localStorage.getItem(chk.id);
+    if(val!==null) chk.checked=(val==='true');
+  });
+  document.querySelectorAll('textarea').forEach(txt=>{
+    const val = localStorage.getItem(txt.id);
+    if(val!==null) txt.value=val;
+  });
+}
+window.onload=loadState;
+</script>
 
-  <details>
-    <summary>Übung: Eigene Stärken notieren</summary>
-    <p>3–5 Dinge aufschreiben, die du an dir schätzt oder gut kannst.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Grenzen erkennen</summary>
-    <p>Situationen identifizieren, die Energie kosten; überlegen, wo „Nein“ möglich ist.</p>
-  </details>
-
-  <details>
-    <summary>Übung: Selbstbewusstsein stärken</summary>
-    <p>Kleine Herausforderungen bewusst annehmen, Erfolgserlebnisse notieren.</p>
-  </details>
-</section>
-
-<section class="self-module">
-  <h2>Entspannung & Meditation</h2>
-
-  <details>
-    <summary>PMR – Progressive Muskelentspannung</summary>
-    <p>Alle Muskelgruppen anspannen, kurz halten, lösen. Körperliche Spannungen spüren.</p>
-  </details>
-
-  <details>
-    <summary>Autogenes Training</summary>
-    <p>Formeln wie „Meine Arme sind schwer“ wiederholen, Entspannung spüren.</p>
-  </details>
-
-  <details>
-    <summary>Schlafhygiene</summary>
-    <p>Regelmäßige Schlafzeiten, Bildschirmfreie Zeit, angenehme Umgebung.</p>
-  </details>
-
-  <details>
-    <summary>Imaginationsübungen</summary>
-    <p>Geführte Bilderreisen, positive Szenarien vorstellen.</p>
-  </details>
-
-  <details>
-    <summary>Meditation</summary>
-    <p>Fokus auf Atem, Mantra oder Körperwahrnehmung für innere Ruhe.</p>
-  </details>
-</section>
-
-<!-- =================== MEHR-INFOS =================== -->
-
-<section class="more-module">
-  <h2>Weitere Informationen</h2>
-
-  <details>
-    <summary>Sprache wählen</summary>
-    <p>Alle Inhalte können in mehreren Sprachen angezeigt werden.</p>
-  </details>
-
-  <details>
-    <summary>Spenden</summary>
-    <p>Ko-fi, PayPal, Bankkonto – freiwillig, App bleibt kostenlos.</p>
-  </details>
-
-  <details>
-    <summary>Datenschutz & Impressum</summary>
-    <p>Alle rechtlichen Informationen hier.</p>
-  </details>
-</section>
-
-</main>
 </body>
-</html>
+  </html>
