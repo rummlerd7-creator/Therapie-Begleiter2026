@@ -7,160 +7,137 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body { font-family: 'Arial', sans-serif; background-color: #f0f4f3; margin:0; padding:0; }
-header { background-color:#009688; color:#fff; text-align:center; padding:1em;}
-header h1 { margin:0.2em 0; font-size:1.8em; }
-nav { background-color:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; position:sticky; top:0; z-index:100; padding:0.5em;}
-nav a { color:#fff; text-decoration:none; font-weight:bold; margin:0.3em;}
-nav a:hover { text-decoration:underline; }
-main { padding:1em; }
-section { margin-bottom:1.5em; }
-section h2 { color:#00796B; margin-bottom:0.5em; display:flex; align-items:center; gap:0.5em; font-size:1.4em;}
-.card { background:#fff; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin:0.5em 0; padding:1em; transition: transform 0.2s; }
-.card:hover { transform: translateY(-2px);}
-details { margin-bottom:0.8em;}
-summary { font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:0.5em; }
-summary::marker { content: ""; } 
-ul { margin:0.5em 0 0.5em 1.2em; padding-left:0;}
-li { margin-bottom:0.3em; display:flex; align-items:center; gap:0.3em;}
-input[type="checkbox"] { margin-right:0.5em; }
-textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:50px; border-radius:5px; border:1px solid #ccc; padding:0.3em; }
-input[type="checkbox"]:checked + label { text-decoration:line-through; color:#555;}
-@media (max-width:600px) { nav { flex-direction:column; text-align:center;} section h2 { font-size:1.2em; } }
+  body { font-family: 'Arial', sans-serif; background-color: #f0f4f3; margin: 0; padding: 0; }
+  header { background-color: #009688; color: #fff; text-align: center; padding: 1em; }
+  header h1 { margin: 0.2em 0; font-size: 1.8em; }
+  nav { background-color: #00796B; display: flex; flex-wrap: wrap; justify-content: space-around; position: sticky; top: 0; z-index: 100; padding: 0.5em; }
+  nav a { color: #fff; text-decoration: none; font-weight: bold; margin: 0.3em; }
+  nav a:hover { text-decoration: underline; }
+  main { padding: 1em; }
+  section { margin-bottom: 1.5em; }
+  section h2 { color: #00796B; margin-bottom: 0.5em; display: flex; align-items: center; gap: 0.5em; font-size: 1.4em; }
+  .card { background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0.5em 0; padding: 1em; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-2px); }
+  details { margin-bottom: 0.8em; }
+  summary { font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 0.5em; }
+  summary::marker { content: ""; } 
+  ul { margin: 0.5em 0 0.5em 1.2em; padding-left: 0; }
+  li { margin-bottom: 0.3em; display: flex; align-items: center; gap: 0.3em; }
+  input[type="checkbox"] { margin-right: 0.5em; }
+  textarea { width: 100%; margin-top: 0.3em; margin-bottom: 0.5em; height: 50px; border-radius: 5px; border: 1px solid #ccc; padding: 0.3em; }
+  input[type="checkbox"]:checked + label { text-decoration: line-through; color: #555; }
+  @media (max-width:600px) {
+    nav { flex-direction: column; text-align: center; }
+    section h2 { font-size: 1.2em; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-<h1>Therapie-Begleiter</h1>
-<p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
+  <h1>Therapie-Begleiter</h1>
+  <p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
 </header>
 
 <nav>
-<a href="#achtsamkeit">Achtsamkeit</a>
-<a href="#stresstoleranz">Stresstoleranz</a>
-<a href="#emotionsregulation">Emotionsregulation</a>
-<a href="#zwischenmenschlich">Zwischenmenschlich</a>
-<a href="#selbstwert">Selbstwert</a>
-<a href="#entspannung">Entspannung</a>
-<a href="#mehr">Mehr-Infos</a>
+  <a href="#achtsamkeit">Achtsamkeit</a>
+  <a href="#stresstoleranz">Stresstoleranz</a>
+  <a href="#emotionsregulation">Emotionsregulation</a>
+  <a href="#zwischenmenschlich">Zwischenmenschlich</a>
+  <a href="#selbstwert">Selbstwert</a>
+  <a href="#entspannung">Entspannung</a>
+  <a href="#mehr">Mehr-Infos</a>
 </nav>
 
 <main>
 
 <!-- ===== ACHTSAMKEIT ===== -->
 <section id="achtsamkeit">
-<h2><i class="fa-solid fa-eye"></i> Achtsamkeit</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-circle-check"></i> Beobachten ohne Bewertung</summary>
-<ul>
-<li><input type="checkbox" id="chk_achtsamkeit_1_1" onchange="saveState(this)"><label for="chk_achtsamkeit_1_1">Moment wahrnehmen</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_1_2" onchange="saveState(this)"><label for="chk_achtsamkeit_1_2">Gedanken beobachten</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_1_3" onchange="saveState(this)"><label for="chk_achtsamkeit_1_3">Gefühle akzeptieren</label></li>
-</ul>
-<textarea id="txt_achtsamkeit_1" placeholder="Notizen hier eintragen..."></textarea>
-</details>
-</div>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-hand-pointer"></i> 5-4-3-2-1 Wahrnehmungsübung</summary>
-<ul>
-<li><input type="checkbox" id="chk_achtsamkeit_2_1" onchange="saveState(this)"><label for="chk_achtsamkeit_2_1">5 Dinge sehen</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_2_2" onchange="saveState(this)"><label for="chk_achtsamkeit_2_2">4 Dinge fühlen</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_2_3" onchange="saveState(this)"><label for="chk_achtsamkeit_2_3">3 Dinge hören</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_2_4" onchange="saveState(this)"><label for="chk_achtsamkeit_2_4">2 Dinge riechen</label></li>
-<li><input type="checkbox" id="chk_achtsamkeit_2_5" onchange="saveState(this)"><label for="chk_achtsamkeit_2_5">1 Ding schmecken</label></li>
-</ul>
-<textarea id="txt_achtsamkeit_2" placeholder="Erfahrungen notieren..."></textarea>
-</details>
-</div>
+  <h2><i class="fa-solid fa-eye"></i> Achtsamkeit</h2>
+  <div class="card">
+    <details>
+      <summary><i class="fa-solid fa-circle-check"></i> Beobachten ohne Bewertung</summary>
+      <ul>
+        <li><input type="checkbox" id="chk_achtsamkeit_1_1" onchange="saveState(this)"><label for="chk_achtsamkeit_1_1">Moment wahrnehmen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_1_2" onchange="saveState(this)"><label for="chk_achtsamkeit_1_2">Gedanken beobachten</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_1_3" onchange="saveState(this)"><label for="chk_achtsamkeit_1_3">Gefühle akzeptieren</label></li>
+      </ul>
+      <textarea id="txt_achtsamkeit_1" placeholder="Notizen hier eintragen..."></textarea>
+    </details>
+  </div>
 
-<!-- ===== STRESSTOLERANZ ===== -->
-<section id="stresstoleranz">
-<h2><i class="fa-solid fa-handshake-simple"></i> Stresstoleranz</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-stop"></i> STOP-Technik</summary>
-<ul>
-<li><input type="checkbox" id="chk_stresstoleranz_1_1" onchange="saveState(this)"><label for="chk_stresstoleranz_1_1">Stop: Handlung unterbrechen</label></li>
-<li><input type="checkbox" id="chk_stresstoleranz_1_2" onchange="saveState(this)"><label for="chk_stresstoleranz_1_2">Take a step back: Abstand gewinnen</label></li>
-<li><input type="checkbox" id="chk_stresstoleranz_1_3" onchange="saveState(this)"><label for="chk_stresstoleranz_1_3">Observe: Gefühle wahrnehmen</label></li>
-<li><input type="checkbox" id="chk_stresstoleranz_1_4" onchange="saveState(this)"><label for="chk_stresstoleranz_1_4">Proceed mindfully: bewusst reagieren</label></li>
-</ul>
-<textarea id="txt_stresstoleranz_1" placeholder="Notizen eintragen..."></textarea>
-</details>
-</div>
+  <div class="card">
+    <details>
+      <summary><i class="fa-solid fa-hand-pointer"></i> 5-4-3-2-1 Wahrnehmungsübung</summary>
+      <ul>
+        <li><input type="checkbox" id="chk_achtsamkeit_2_1" onchange="saveState(this)"><label for="chk_achtsamkeit_2_1">5 Dinge sehen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_2_2" onchange="saveState(this)"><label for="chk_achtsamkeit_2_2">4 Dinge fühlen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_2_3" onchange="saveState(this)"><label for="chk_achtsamkeit_2_3">3 Dinge hören</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_2_4" onchange="saveState(this)"><label for="chk_achtsamkeit_2_4">2 Dinge riechen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_2_5" onchange="saveState(this)"><label for="chk_achtsamkeit_2_5">1 Ding schmecken</label></li>
+      </ul>
+      <textarea id="txt_achtsamkeit_2" placeholder="Erfahrungen notieren..."></textarea>
+    </details>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary><i class="fa-solid fa-lungs"></i> Atembeobachtung</summary>
+      <ul>
+        <li><input type="checkbox" id="chk_achtsamkeit_3_1" onchange="saveState(this)"><label for="chk_achtsamkeit_3_1">Tief ein- und ausatmen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_3_2" onchange="saveState(this)"><label for="chk_achtsamkeit_3_2">Gedanken ziehen lassen</label></li>
+      </ul>
+      <textarea id="txt_achtsamkeit_3" placeholder="Gedanken dazu..."></textarea>
+    </details>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary><i class="fa-solid fa-brain"></i> Gedanken beobachten</summary>
+      <ul>
+        <li><input type="checkbox" id="chk_achtsamkeit_4_1" onchange="saveState(this)"><label for="chk_achtsamkeit_4_1">Gedanken notieren</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_4_2" onchange="saveState(this)"><label for="chk_achtsamkeit_4_2">Nicht bewerten</label></li>
+      </ul>
+      <textarea id="txt_achtsamkeit_4" placeholder="Gedanken aufschreiben..."></textarea>
+    </details>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary><i class="fa-solid fa-person-walking"></i> Body-Scan</summary>
+      <ul>
+        <li><input type="checkbox" id="chk_achtsamkeit_5_1" onchange="saveState(this)"><label for="chk_achtsamkeit_5_1">Körperteile bewusst wahrnehmen</label></li>
+        <li><input type="checkbox" id="chk_achtsamkeit_5_2" onchange="saveState(this)"><label for="chk_achtsamkeit_5_2">Verspannungen lösen</label></li>
+      </ul>
+      <textarea id="txt_achtsamkeit_5" placeholder="Empfindungen aufschreiben..."></textarea>
+    </details>
+  </div>
 </section>
-
-<!-- ===== EMOTIONSREGULATION ===== -->
-<section id="emotionsregulation">
-<h2><i class="fa-solid fa-heart-pulse"></i> Emotionsregulation</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-face-smile"></i> Gefühle benennen</summary>
-<ul>
-<li><input type="checkbox" id="chk_emotionsreg_1_1" onchange="saveState(this)"><label for="chk_emotionsreg_1_1">Gefühl erkennen</label></li>
-<li><input type="checkbox" id="chk_emotionsreg_1_2" onchange="saveState(this)"><label for="chk_emotionsreg_1_2">Intensität einschätzen</label></li>
-<li><input type="checkbox" id="chk_emotionsreg_1_3" onchange="saveState(this)"><label for="chk_emotionsreg_1_3">Körperliche Wahrnehmung</label></li>
-</ul>
-<textarea id="txt_emotionsreg_1" placeholder="Gefühle dokumentieren..."></textarea>
-</details>
-</div>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-hands-holding-circle"></i> Radikale Akzeptanz</summary>
-<ul>
-<li><input type="checkbox" id="chk_emotionsreg_2_1" onchange="saveState(this)"><label for="chk_emotionsreg_2_1">Akzeptanz innerer Zustände</label></li>
-<li><input type="checkbox" id="chk_emotionsreg_2_2" onchange="saveState(this)"><label for="chk_emotionsreg_2_2">Nicht bewerten</label></li>
-</ul>
-<textarea id="txt_emotionsreg_2" placeholder="Gedanken zur Akzeptanz..."></textarea>
-</details>
-</div>
-</section>
-
-<!-- ===== ZWISCHENMENSCHLICH ===== -->
-<section id="zwischenmenschlich">
-<h2><i class="fa-solid fa-users"></i> Zwischenmenschliche Fertigkeiten</h2>
-<div class="card">
-<details>
-<summary><i class="fa-solid fa-bullseye"></i> DEAR MAN – Ziele erreichen</summary>
-<ul>
-<li><input type="checkbox" id="chk_zwischenmensch_1_1" onchange="saveState(this)"><label for="chk_zwischenmensch_1_1">Describe</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_2" onchange="saveState(this)"><label for="chk_zwischenmensch_1_2">Express</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_3" onchange="saveState(this)"><label for="chk_zwischenmensch_1_3">Assert</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_4" onchange="saveState(this)"><label for="chk_zwischenmensch_1_4">Reinforce</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_5" onchange="saveState(this)"><label for="chk_zwischenmensch_1_5">Mindful</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_6" onchange="saveState(this)"><label for="chk_zwischenmensch_1_6">Appear confident</label></li>
-<li><input type="checkbox" id="chk_zwischenmensch_1_7" onchange="saveState(this)"><label for="chk_zwischenmensch_1_7">Negotiate</label></li>
-</ul>
-<textarea id="txt_zwischenmensch_1" placeholder="Erfahrungen notieren..."></textarea>
-</details>
-</div>
-
-<!-- Selbstwert & Entspannung kommen gleich in weiteren Codeblock -->
 
 <script>
-function saveState(element){
+function saveState(element) {
   const id = element.id;
-  const txtId = element.id.replace("chk","txt");
+  const txtId = id.replace("_1","").replace("_2","").replace("_3","") // passt auf alle Unterpunkte
+  const txtEl = document.getElementById("txt" + txtId.substring(3));
   localStorage.setItem(id, element.checked);
-  const txtEl = document.getElementById(txtId);
-  if(txtEl) localStorage.setItem(txtId, txtEl.value);
+  if(txtEl) localStorage.setItem(txtEl.id, txtEl.value);
 }
 
-function loadState(){
-  document.querySelectorAll('input[type="checkbox"]').forEach(chk=>{
-    const val = localStorage.getItem(chk.id);
-    if(val!==null) chk.checked=(val==='true');
+function loadState() {
+  const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+  allCheckboxes.forEach(chk => {
+    const storedChk = localStorage.getItem(chk.id);
+    if(storedChk !== null) chk.checked = (storedChk === 'true');
   });
-  document.querySelectorAll('textarea').forEach(txt=>{
-    const val = localStorage.getItem(txt.id);
-    if(val!==null) txt.value=val;
+  const allTextareas = document.querySelectorAll('textarea');
+  allTextareas.forEach(txt => {
+    const storedTxt = localStorage.getItem(txt.id);
+    if(storedTxt !== null) txt.value = storedTxt;
   });
 }
-window.onload=loadState;
+
+window.onload = loadState;
 </script>
 
 </body>
-</html>
+  </html>
