@@ -1,260 +1,89 @@
+        
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Therapie-Begleiter – DBT & Selbsteinschätzung</title>
-
-<style>
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  margin: 0;
-  background: #f7f9f8;
-  color: #222;
-}
-
-header {
-  background: #2f7f7a;
-  color: white;
-  padding: 1rem;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-nav button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-main {
-  padding: 1.2rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-section {
-  display: none;
-}
-
-section.active {
-  display: block;
-}
-
-h2 {
-  margin-top: 0;
-}
-
-.card {
-  background: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-details summary {
-  font-weight: 600;
-  cursor: pointer;
-}
-
-footer {
-  font-size: 0.85rem;
-  color: #555;
-  padding: 1rem;
-  text-align: center;
-}
-</style>
-
-<script>
-function show(id) {
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapie-Begleiter</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f9f8; margin: 0; padding: 0; }
+    header, nav { background-color: #009688; color: #fff; padding: 1em; text-align: center; }
+    h1, h2 { color: #00796B; }
+    section { margin: 1em; padding: 1em; background: #fff; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    details { margin-bottom: 0.5em; }
+    summary { font-weight: bold; cursor: pointer; }
+    ul { margin: 0.5em 0 0.5em 1.2em; }
+  </style>
 </head>
-
 <body>
 
 <header>
   <h1>Therapie-Begleiter</h1>
-  <nav>
-    <button onclick="show('start')">Start</button>
-    <button onclick="show('dbt')">DBT & Stabilisierung</button>
-    <button onclick="show('screening')">Selbsteinschätzung</button>
-    <button onclick="show('protokolle')">Protokolle</button>
-    <button onclick="show('unterstuetzung')">Unterstützung</button>
-    <button onclick="show('recht')">Rechtliches</button>
-  </nav>
+  <p>Selbsthilfe, DBT & Verhaltenstherapie-Übungen</p>
 </header>
 
 <main>
 
-<section id="start" class="active">
-  <div class="card">
-    <h2>Einordnung</h2>
-    <p>
-      Diese Website dient der <strong>Selbstreflexion, Stabilisierung und Orientierung</strong>.
-      Sie ersetzt keine Psychotherapie, Diagnostik oder medizinische Behandlung.
-    </p>
-    <p>
-      Die Inhalte orientieren sich an Elementen der Dialektisch-Behavioralen Therapie (DBT),
-      Verhaltenstherapie und stabilisierenden Verfahren.
-    </p>
-  </div>
-</section>
-
-
-
-<section id="screening">
-  <div class="card">
-    <h2>Selbsteinschätzung (Screening)</h2>
-    <p>
-      Die folgenden Bereiche dienen der <strong>Orientierung</strong>.
-      Es werden <strong>keine Diagnosen</strong> gestellt.
-    </p>
-
-    <details>
-      <summary>Belastung & Stress</summary>
-      <p>Fragen zu Überforderung, Erschöpfung, Anspannung.</p>
-    </details>
-
-    <details>
-      <summary>Emotionale Muster</summary>
-      <p>Intensität, Wechsel, Kontrollverlust.</p>
-    </details>
-
-    <details>
-      <summary>Persönlichkeitsnahe Muster</summary>
-      <p>Beziehungsgestaltung, Selbstbild, Impulsivität.</p>
-    </details>
-
-    <details>
-      <summary>Trauma & Angst</summary>
-      <p>Orientierende Fragen zu Bedrohungs- und Vermeidungsmustern.</p>
-    </details>
-  </div>
-</section>
-
-<section id="protokolle">
-  <div class="card">
-    <h2>Protokolle</h2>
-    <p>Trage deine täglichen Beobachtungen ein. Alles bleibt lokal auf deinem Gerät.</p>
-
-    <h3>Tagesprotokoll</h3>
-    <textarea id="tagebuch" placeholder="Notiere deinen Tag…"></textarea><br>
-    <button onclick="saveEntry('tagebuch')">Speichern</button>
-    <p id="tagebuchStatus" style="color:green;"></p>
-
-    <h3>Stressprotokoll</h3>
-    <textarea id="stresslog" placeholder="Belastende Situationen, Reaktion…"></textarea><br>
-    <button onclick="saveEntry('stresslog')">Speichern</button>
-    <p id="stresslogStatus" style="color:green;"></p>
-
-    <h3>Emotionssurfing</h3>
-    <textarea id="emotionssurfing" placeholder="Gefühl, Dauer, Beobachtung…"></textarea><br>
-    <button onclick="saveEntry('emotionssurfing')">Speichern</button>
-    <p id="emotionsStatus" style="color:green;"></p>
-
-  </div>
-</section>
-
-  
-  
-  <section id="dbt">
-  <div class="card"> 
-    
-    <h2>DBT – Emotionsregulation</h2>
-
-<p>
-Dieses Modul hilft dir, Gefühle besser zu verstehen, zu benennen und zu beeinflussen,
-ohne sie zu unterdrücken oder von ihnen überwältigt zu werden.
-Ziel ist nicht, Gefühle „loszuwerden“, sondern einen konstruktiven Umgang mit ihnen zu entwickeln.
-</p>
-
-<details>
-  <summary>Was sind Emotionen?</summary>
-  <p>
-  Emotionen sind komplexe Reaktionen auf innere oder äußere Ereignisse.
-  Sie bestehen aus körperlichen Reaktionen, Gedanken, Impulsen und Verhaltenstendenzen.
-  Gefühle sind nicht „falsch“ – sie enthalten wichtige Informationen.
-  </p>
-</details>
-
-<details>
-  <summary>Ziele der Emotionsregulation</summary>
-  <ul>
-    <li>Emotionen frühzeitig wahrnehmen</li>
-    <li>Emotionen benennen und einordnen</li>
-    <li>Emotionale Überreaktionen reduzieren</li>
-    <li>Handlungsfähigkeit wiederherstellen</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Übung: Gefühle differenziert benennen</summary>
-  <p>
-  Nimm dir 1–2 Minuten Zeit und beantworte schriftlich oder gedanklich:
-  </p>
-  <ul>
-    <li>Was fühle ich gerade?</li>
-    <li>Wie stark ist dieses Gefühl (0–100)?</li>
-    <li>Wo im Körper spüre ich es?</li>
-    <li>Was hat das Gefühl ausgelöst?</li>
-  </ul>
-  <p>
-  Ziel ist nicht Bewertung, sondern Beobachtung.
-  </p>
-</details>
-
-<details>
-  <summary>Übung: Gefühle akzeptieren (Radikale Akzeptanz – Kurzform)</summary>
-  <p>
-  Sage innerlich:
-  </p>
-  <ul>
-    <li>„Das ist gerade so.“</li>
-    <li>„Ich muss es nicht mögen, aber ich kann es anerkennen.“</li>
-    <li>„Widerstand verstärkt Leiden.“</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Wann dieses Modul besonders hilfreich ist</summary>
-  <ul>
-    <li>bei starken Gefühlsschwankungen</li>
-    <li>bei innerer Anspannung</li>
-    <li>bei impulsivem Verhalten</li>
-    <li>bei emotionaler Überforderung</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Wichtiger Hinweis</summary>
-  <p>
-  Diese Inhalte ersetzen keine Therapie.
-  Bei anhaltender oder zunehmender Belastung ist professionelle Unterstützung sinnvoll.
-  </p>
-</details>
-  </div>
-</section> 
-  <section class="dbt-module">
-  <h2>Zwischenmenschliche Fertigkeiten</h2>
-
+<!-- DBT: Achtsamkeit -->
+<section class="dbt-module">
+  <h2>Achtsamkeit</h2>
   <details>
     <summary>Worum geht es?</summary>
-    <p>
-      Dieses Modul hilft dabei, Beziehungen aktiv zu gestalten, eigene Bedürfnisse
-      klar zu vertreten und gleichzeitig den Selbstrespekt zu bewahren.
-    </p>
+    <p>Die bewusste Wahrnehmung des Augenblicks ohne Bewertung.</p>
   </details>
+  <details>
+    <summary>Übung: Beobachten ohne zu urteilen</summary>
+    <p>Atme tief ein und aus, nimm Gedanken und Gefühle wahr, ohne sie zu bewerten.</p>
+  </details>
+</section>
 
+<!-- DBT: Stresstoleranz -->
+<section class="dbt-module">
+  <h2>Stresstoleranz</h2>
+  <details>
+    <summary>Worum geht es?</summary>
+    <p>Mit belastenden Situationen umgehen, ohne impulsiv zu handeln.</p>
+  </details>
+  <details>
+    <summary>Übung: STOP-Technik</summary>
+    <ul>
+      <li>Stop: Handlung unterbrechen</li>
+      <li>Take a step back: Abstand gewinnen</li>
+      <li>Observe: Gefühle und Gedanken wahrnehmen</li>
+      <li>Proceed mindfully: bewusst reagieren</li>
+    </ul>
+  </details>
+</section>
+
+<!-- DBT: Emotionsregulation -->
+<section class="dbt-module">
+  <h2>Emotionsregulation</h2>
+  <details>
+    <summary>Worum geht es?</summary>
+    <p>Gefühle verstehen, benennen und konstruktiv beeinflussen.</p>
+  </details>
+  <details>
+    <summary>Übung: Gefühle benennen</summary>
+    <ul>
+      <li>Was fühle ich gerade?</li>
+      <li>Wie stark ist das Gefühl (0-100)?</li>
+      <li>Wo im Körper spüre ich es?</li>
+      <li>Was hat das Gefühl ausgelöst?</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Übung: Radikale Akzeptanz</summary>
+    <p>„Das ist gerade so.“ – Gefühle anerkennen ohne Widerstand.</p>
+  </details>
+</section>
+
+<!-- DBT: Zwischenmenschliche Fertigkeiten -->
+<section class="dbt-module">
+  <h2>Zwischenmenschliche Fertigkeiten</h2>
+  <details>
+    <summary>Worum geht es?</summary>
+    <p>Beziehungen gestalten, Bedürfnisse vertreten und Selbstrespekt wahren.</p>
+  </details>
   <details>
     <summary>DEAR MAN – Ziele erreichen</summary>
     <ul>
@@ -267,7 +96,6 @@ Ziel ist nicht, Gefühle „loszuwerden“, sondern einen konstruktiven Umgang m
       <li><strong>N</strong> – Negotiate: Verhandlungsbereit sein</li>
     </ul>
   </details>
-
   <details>
     <summary>GIVE – Beziehung erhalten</summary>
     <ul>
@@ -277,7 +105,6 @@ Ziel ist nicht, Gefühle „loszuwerden“, sondern einen konstruktiven Umgang m
       <li><strong>E</strong> – Easy manner: Locker bleiben</li>
     </ul>
   </details>
-
   <details>
     <summary>FAST – Selbstrespekt wahren</summary>
     <ul>
@@ -287,363 +114,39 @@ Ziel ist nicht, Gefühle „loszuwerden“, sondern einen konstruktiven Umgang m
       <li><strong>T</strong> – Truthful: Ehrlich bleiben</li>
     </ul>
   </details>
-
-  </section>
-  
-    
-  <h2>Zwischenmenschliche Fertigkeiten</h2>
-
-  <details>
-    <summary>Worum geht es?</summary>
-    <p>
-      Dieses Modul hilft dabei, Beziehungen aktiv zu gestalten, eigene Bedürfnisse
-      klar zu vertreten und gleichzeitig den Selbstrespekt zu bewahren.
-    </p>
-  </details>
-
-  <details>
-    <summary>DEAR MAN – Ziele erreichen</summary>
-    <ul>
-      <li><strong>D</strong> – Describe: Situation sachlich beschreiben</li>
-      <li><strong>E</strong> – Express: Gefühle und Bedürfnisse ausdrücken</li>
-      <li><strong>A</strong> – Assert: Klar sagen, was du willst</li>
-      <li><strong>R</strong> – Reinforce: Nutzen aufzeigen</li>
-      <li><strong>M</strong> – Mindful: Beim Thema bleiben</li>
-      <li><strong>A</strong> – Appear confident: Sicher auftreten</li>
-      <li><strong>N</strong> – Negotiate: Verhandlungsbereit sein</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>GIVE – Beziehung erhalten</summary>
-    <ul>
-      <li><strong>G</strong> – Gentle: Freundlich bleiben</li>
-      <li><strong>I</strong> – Interested: Interesse zeigen</li>
-      <li><strong>V</strong> – Validate: Gefühle anerkennen</li>
-      <li><strong>E</strong> – Easy manner: Locker bleiben</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>FAST – Selbstrespekt wahren</summary>
-    <ul>
-      <li><strong>F</strong> – Fair: Fair zu dir und anderen</li>
-      <li><strong>A</strong> – Apologies: Nicht übermäßig entschuldigen</li>
-      <li><strong>S</strong> – Stick to values: Bei Werten bleiben</li>
-      <li><strong>T</strong> – Truthful: Ehrlich bleiben</li>
-    </ul>
-  </details>
-
-</section>
-  <section id="selbstwert">
-  <div class="card">
-    <h2>Grenzen, Selbstwert & Selbstbewusstsein</h2>
-    <p>
-      Viele psychische Belastungen entstehen dort, wo eigene Grenzen nicht wahrgenommen,
-      nicht ernst genommen oder dauerhaft überschritten werden.  
-      Dieser Bereich hilft dir, dich selbst klarer zu spüren und dich respektvoll abzugrenzen.
-    </p>
-
-    <details>
-      <summary><strong>1. Eigene Grenzen wahrnehmen</strong></summary>
-      <p><em>Ziel:</em> Früh erkennen, wann etwas „zu viel“ wird.</p>
-
-      <h4>Übung: Körperliche Warnsignale</h4>
-      <ul>
-        <li>Anspannung</li>
-        <li>Unruhe</li>
-        <li>Erschöpfung</li>
-        <li>Rückzug oder Gereiztheit</li>
-      </ul>
-
-      <p><strong>Reflexion:</strong> Welche Signale zeigen sich bei mir zuerst?</p>
-    </details>
-
-    <details>
-      <summary><strong>2. Grenzen innerlich anerkennen</strong></summary>
-      <p><em>Ziel:</em> Eigene Bedürfnisse als legitim betrachten.</p>
-
-      <h4>Übung: Erlaubnis-Sätze</h4>
-      <ul>
-        <li>„Ich darf Nein sagen.“</li>
-        <li>„Ich muss mich nicht rechtfertigen.“</li>
-        <li>„Meine Grenzen sind nicht falsch.“</li>
-      </ul>
-
-      <p><strong>Hinweis:</strong> Schuldgefühle sind häufig – kein Zeichen von Egoismus.</p>
-    </details>
-
-    <details>
-      <summary><strong>3. Grenzen kommunizieren</strong></summary>
-      <p><em>Ziel:</em> Klar, ruhig und respektvoll für sich einstehen.</p>
-
-      <h4>Übung: Klarer Grenzsatz</h4>
-      <p>
-        Struktur: <strong>Ich-Botschaft + Grenze + ggf. Alternative</strong>
-      </p>
-      <ul>
-        <li>„Ich merke, dass mir das zu viel wird. Ich brauche jetzt eine Pause.“</li>
-        <li>„Ich kann das heute nicht übernehmen.“</li>
-      </ul>
-
-      <p><strong>Wichtig:</strong> Ein Nein braucht keine lange Erklärung.</p>
-    </details>
-
-    <details>
-      <summary><strong>4. Umgang mit Schuldgefühlen</strong></summary>
-      <p><em>Ziel:</em> Schuldgefühle verstehen, ohne ihnen zu folgen.</p>
-
-      <h4>Übung: Realität prüfen</h4>
-      <ul>
-        <li>Habe ich jemandem bewusst geschadet?</li>
-        <li>Oder nur für mich gesorgt?</li>
-      </ul>
-
-      <p>
-        <strong>Merksatz:</strong> Selbstfürsorge ist kein Angriff.
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>5. Selbstwert stärken</strong></summary>
-      <p><em>Ziel:</em> Eigenen Wert unabhängig von Leistung oder Zustimmung entwickeln.</p>
-
-      <h4>Übung: Stärkenbilanz</h4>
-      <ul>
-        <li>Was habe ich in schwierigen Situationen geschafft?</li>
-        <li>Welche Eigenschaften helfen mir zu überleben?</li>
-      </ul>
-
-      <h4>Übung: Selbstrespekt-Handlung</h4>
-      <p>
-        Jeden Tag eine kleine Handlung, die zeigt: „Ich nehme mich ernst.“
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>6. Selbstbewusstsein im Alltag</strong></summary>
-      <p><em>Ziel:</em> Sichtbar werden, ohne sich zu verbiegen.</p>
-
-      <h4>Übung: Präsenz</h4>
-      <ul>
-        <li>Aufrechte Haltung</li>
-        <li>Ruhiges Sprechen</li>
-        <li>Pausen zulassen</li>
-      </ul>
-
-      <p><strong>Reflexion:</strong> Wie verändert sich mein Auftreten?</p>
-    </details>
-
-  </div>
-</section>
-  <section id="stabilisierung">
-  <div class="card">
-    <h2>Entspannung & Stabilisierung</h2>
-
-    <details>
-      <summary><strong>1. Atem beruhigen (4–6-Rhythmus)</strong></summary>
-      <p>Langsames Ausatmen aktiviert den Parasympathikus.</p>
-      <ul>
-        <li>4 Sekunden einatmen</li>
-        <li>6 Sekunden ausatmen</li>
-        <li>2–5 Minuten wiederholen</li>
-      </ul>
-      <p><em>Abbrechen bei Schwindel oder Unruhe.</em></p>
-    </details>
-
-    <details>
-      <summary><strong>2. Progressive Muskelentspannung (Kurzform)</strong></summary>
-      <p>Anspannen → Loslassen → Unterschied spüren.</p>
-      <ul>
-        <li>Hände</li>
-        <li>Schultern</li>
-        <li>Beine</li>
-      </ul>
-      <p>Dauer: 5–8 Minuten</p>
-    </details>
-
-    <details>
-      <summary><strong>3. Bodenkontakt & Orientierung</strong></summary>
-      <p>Zurück ins Hier-und-Jetzt über Sinne:</p>
-      <ul>
-        <li>5 Dinge sehen</li>
-        <li>4 Dinge fühlen</li>
-        <li>3 Dinge hören</li>
-        <li>2 Gerüche</li>
-        <li>1 Geschmack</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><strong>4. Sicherer Ort (optional)</strong></summary>
-      <p>Nur anwenden, wenn innere Bilder stabilisierend wirken.</p>
-      <p>Alternative: realer Ort oder Gegenstand.</p>
-    </details>
-
-    <p class="hint">
-      Diese Übungen ersetzen keine Therapie. Bei Verschlechterung bitte abbrechen.
-    </p>
-  </div>
-  </section>
-
-<script>
-// Lädt vorherige Einträge
-window.onload = function() {
-  ['tagebuch', 'stresslog', 'emotionssurfing'].forEach(id => {
-    const val = localStorage.getItem(id);
-    if(val) document.getElementById(id).value = val;
-  });
-}
-
-// Speichern-Funktion
-function saveEntry(id) {
-  const text = document.getElementById(id).value;
-  localStorage.setItem(id, text);
-  document.getElementById(id + 'Status').textContent = "Gespeichert!";
-  setTimeout(() => { document.getElementById(id + 'Status').textContent = ""; }, 2000);
-}
-</script>
-
-<style>
-textarea {
-  width: 100%;
-  min-height: 80px;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  resize: vertical;
-}
-button {
-  background: #2f7f7a;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-button:hover {
-  background: #24655f;
-}
-</style>
-
-<section id="unterstuetzung">
-  <div class="card">
-    <h2>Unterstützung</h2>
-    <p>Diese Plattform bleibt <strong>kostenlos</strong> für alle Nutzer:innen.  
-    Wenn du unsere Arbeit unterstützen möchtest, kannst du freiwillig spenden:</p>
-
-    <div style="margin-bottom:1rem;">
-      <a href="DEIN_KOFI_LINK_HIER" target="_blank">
-        <button>Unterstütze über Ko-fi</button>
-      </a>
-    </div>
-
-    <div style="margin-bottom:1rem;">
-      <a href= https://py.pl/6eQEzWjIhXzW5EdRTrtq7g target="_blank">
-        <button>Unterstütze über PayPal</button>
-      </a>
-    </div>
-
-    <div style="margin-bottom:1rem;">
-      <p>Oder per Banküberweisung:</p>
-      <p>
-        Kontoinhaber: Max Mustermann<br>
-        IBAN: DE12345678901234567890<br>
-        BIC: PBNKDEFFXXX<br>
-        Verwendungszweck: „Therapie-Begleiter“
-      </p>
-    </div>
-
-    <p style="font-style: italic; color: #555;">Danke für jede Unterstützung! Sie hilft, die Inhalte weiter zu entwickeln.</p>
-  </div>
 </section>
 
-<style>
-button {
-  background: #2f7f7a;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-button:hover {
-  background: #24655f;
-}
-</style>
+<!-- Selbstwert & Selbstbewusstsein -->
+<section class="self-module">
+  <h2>Selbstwert & Selbstbewusstsein</h2>
+  <details>
+    <summary>Übung: Eigene Stärken notieren</summary>
+    <p>Schreibe 3–5 Dinge auf, die du gut kannst oder an dir schätzt.</p>
+  </details>
+  <details>
+    <summary>Übung: Grenzen erkennen</summary>
+    <p>Welche Situationen kosten mich Energie? Wo möchte ich „Nein“ sagen?</p>
+  </details>
+</section>
 
-<section id="recht">
-  <div class="card">
-    <h2>Rechtliches</h2>
-    <p><strong>Impressum</strong> – Angaben ergänzen</p>
-    <p><strong>Datenschutz</strong> – keine Speicherung, keine Cookies</p>
-  </div>
+<!-- Mehr Infos -->
+<section class="more-module">
+  <h2>Weitere Informationen</h2>
+  <details>
+    <summary>Sprache wählen</summary>
+    <p>Alle Inhalte können in mehreren Sprachen angezeigt werden.</p>
+  </details>
+  <details>
+    <summary>Spenden</summary>
+    <p>Ko-fi, PayPal, Bankkonto – freiwillige Nutzung. App bleibt kostenlos.</p>
+  </details>
+  <details>
+    <summary>Datenschutz & Impressum</summary>
+    <p>Alle rechtlichen Infos hier.</p>
+  </details>
 </section>
 
 </main>
 
-<footer>
-  Therapie-Begleiter · kostenlose Nutzung · keine Diagnosen
-</footer>
-<section id="protokolle">
-  <div class="card">
-    <h2>Protokolle & Selbstbeobachtung</h2>
-    <p>
-      Protokolle helfen dir, Emotionen, Stress und Verhalten nachzuvollziehen.
-      Sie ersetzen keine Therapie, sind freiwillig und dienen der Selbstreflexion.
-    </p>
-
-    <details>
-      <summary><strong>1. Tagesprotokoll</strong></summary>
-      <p><em>Ziel:</em> Überblick über Stimmung, Aktivitäten, Belastungen.</p>
-      <ul>
-        <li>Morgens: Schlafqualität, Energie, Motivation</li>
-        <li>Tagsüber: Belastende Situationen, Gefühle, Reaktionen</li>
-        <li>Abends: Erfolge, angenehme Momente, Entspannungsübungen</li>
-      </ul>
-      <p><strong>Tip:</strong> Kurz & knapp notieren, 2–3 Minuten reichen.</p>
-    </details>
-
-    <details>
-      <summary><strong>2. Stressprotokoll</strong></summary>
-      <p><em>Ziel:</em> Frühwarnzeichen erkennen und Gegenmaßnahmen ableiten.</p>
-      <ul>
-        <li>Auslösende Situationen</li>
-        <li>Körperliche Reaktionen</li>
-        <li>Emotionale Intensität (1–10)</li>
-        <li>DBT-Übung oder Entspannung angewendet?</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary><strong>3. Emotionssurfing</strong></summary>
-      <p><em>Ziel:</em> Gefühle beobachten, statt sich von ihnen treiben zu lassen.</p>
-      <ol>
-        <li>Gefühl benennen</li>
-        <li>Intensität einschätzen (1–10)</li>
-        <li>Verhalten beobachten: Impulse vs. Handlung</li>
-        <li>DBT- oder Stabilisierungstechnik einsetzen</li>
-      </ol>
-      <p><strong>Hinweis:</strong> Beobachten statt bewerten!</p>
-    </details>
-
-    <details>
-      <summary><strong>4. Reflexion & Wochenbilanz</strong></summary>
-      <p><em>Ziel:</em> Wiederkehrende Muster erkennen, Erfolge sichtbar machen.</p>
-      <ul>
-        <li>Welche Situationen waren stressig, welche entlastend?</li>
-        <li>Welche Übungen haben geholfen?</li>
-        <li>Was möchte ich nächste Woche ausprobieren oder ändern?</li>
-      </ul>
-    </details>
-
-    <p class="hint">
-      Freiwillig nutzen. Selbstbeobachtung ersetzt keine fachliche Betreuung.
-    </p>
-  </div>
-</section>
 </body>
 </html>
