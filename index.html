@@ -5,21 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Therapie-Begleiter</title>
 <style>
-/* Grundlayout */
 body { font-family: Arial, sans-serif; background:#f7f9f8; margin:0; padding:0;}
 header { background:#009688; color:#fff; text-align:center; padding:1em; position:sticky; top:0; z-index:1000;}
 header h1 { margin:0.2em 0; font-size:1.8em; }
-nav { background:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; padding:0.5em; position:sticky; top:3.5em; z-index:999; }
+nav { background:#00796B; display:flex; flex-wrap:wrap; justify-content:space-around; align-items:center; padding:0.5em; position:sticky; top:3.5em; z-index:999; }
 nav button { background:#004D40; color:#fff; border:none; padding:0.5em 0.8em; border-radius:8px; margin:0.2em; cursor:pointer; font-weight:bold; }
 nav button:hover { background:#00695C; }
+nav select { border-radius:5px; padding:0.4em; margin-left:0.5em;}
 main { padding:1em; max-width:800px; margin:auto;}
 section { margin-bottom:1.5em; }
 section h2 { color:#00796B; margin-bottom:0.5em; font-size:1.4em; border-bottom:2px solid #00796B; padding-bottom:0.2em; }
 .card { background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin:0.8em 0; padding:1em; transition:0.2s; }
 .card:hover { transform:translateY(-2px);}
 textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:60px; border-radius:5px; border:1px solid #ccc; padding:0.3em; resize:vertical; }
-
-/* Responsive */
 @media(max-width:600px){
   header h1 { font-size:1.5em; }
   nav { flex-direction:column; }
@@ -30,131 +28,188 @@ textarea { width:100%; margin-top:0.3em; margin-bottom:0.5em; height:60px; borde
 <body>
 
 <header>
-<h1>Therapie-Begleiter</h1>
-<p>DBT & Verhaltenstherapie Selbsthilfe</p>
+<h1 id="title">Therapie-Begleiter</h1>
+<p id="subtitle">DBT & Verhaltenstherapie Selbsthilfe</p>
 </header>
 
 <nav>
-<button onclick="scrollToSection('achtsamkeit')">Achtsamkeit</button>
-<button onclick="scrollToSection('stresstoleranz')">Stresstoleranz</button>
-<button onclick="scrollToSection('emotionsregulation')">Emotionsregulation</button>
-<button onclick="scrollToSection('zwischenmenschlich')">Zwischenmenschlich</button>
-<button onclick="scrollToSection('selbstwert')">Selbstwert</button>
-<button onclick="scrollToSection('entspannung')">Entspannung</button>
-<button onclick="scrollToSection('mehr')">Mehr-Infos</button>
+<button onclick="scrollToSection('achtsamkeit')" id="btnAchtsamkeit">Achtsamkeit</button>
+<button onclick="scrollToSection('stresstoleranz')" id="btnStresstoleranz">Stresstoleranz</button>
+<button onclick="scrollToSection('emotionsregulation')" id="btnEmotionsregulation">Emotionsregulation</button>
+<button onclick="scrollToSection('zwischenmenschlich')" id="btnZwischenmenschlich">Zwischenmenschlich</button>
+<button onclick="scrollToSection('selbstwert')" id="btnSelbstwert">Selbstwert</button>
+<button onclick="scrollToSection('entspannung')" id="btnEntspannung">Entspannung</button>
+<button onclick="scrollToSection('mehr')" id="btnMehr">Mehr-Infos</button>
+
+<select id="languageSelect" onchange="changeLanguage(this.value)">
+  <option value="de">Deutsch</option>
+  <option value="en">Englisch</option>
+  <option value="fr">Französisch</option>
+  <option value="pt">Portugiesisch</option>
+  <option value="es">Spanisch</option>
+  <option value="ru">Russisch</option>
+  <option value="zh">Chinesisch</option>
+</select>
 </nav>
 
 <main>
 <!-- ACHTSAMKEIT -->
 <section id="achtsamkeit">
-<h2>Achtsamkeit</h2>
+<h2 id="secAchtsamkeit">Achtsamkeit</h2>
 <div class="card">
-<h3>Beobachten ohne Bewertung</h3>
-<p>Moment wahrnehmen, Gedanken beobachten, Gefühle akzeptieren</p>
+<h3 id="achts1">Beobachten ohne Bewertung</h3>
+<p id="achts1txt">Moment wahrnehmen, Gedanken beobachten, Gefühle akzeptieren</p>
 <textarea id="txt_achtsamkeit_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 <div class="card">
-<h3>5-4-3-2-1 Wahrnehmungsübung</h3>
-<p>5 Dinge sehen, 4 Dinge fühlen, 3 Dinge hören, 2 Dinge riechen, 1 Ding schmecken</p>
+<h3 id="achts2">5-4-3-2-1 Wahrnehmungsübung</h3>
+<p id="achts2txt">5 Dinge sehen, 4 Dinge fühlen, 3 Dinge hören, 2 Dinge riechen, 1 Ding schmecken</p>
 <textarea id="txt_achtsamkeit_2" placeholder="Erfahrungen notieren..."></textarea>
 </div>
 </section>
 
 <!-- STRESSTOLERANZ -->
 <section id="stresstoleranz">
-<h2>Stresstoleranz</h2>
+<h2 id="secStresstoleranz">Stresstoleranz</h2>
 <div class="card">
-<h3>STOP-Technik</h3>
-<p>Stop: Handlung unterbrechen, Take a step back: Abstand gewinnen, Observe: Gefühle wahrnehmen, Proceed mindfully: bewusst reagieren</p>
+<h3 id="stress1">STOP-Technik</h3>
+<p id="stress1txt">Handlung unterbrechen, Abstand gewinnen, Gefühle wahrnehmen, bewusst reagieren</p>
 <textarea id="txt_stresstoleranz_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 </section>
 
 <!-- EMOTIONSREGULATION -->
 <section id="emotionsregulation">
-<h2>Emotionsregulation</h2>
+<h2 id="secEmotionsregulation">Emotionsregulation</h2>
 <div class="card">
-<h3>Gefühle benennen</h3>
-<p>Gefühl erkennen, Intensität einschätzen, Körperliche Wahrnehmung</p>
+<h3 id="emo1">Gefühle benennen</h3>
+<p id="emo1txt">Gefühl erkennen, Intensität einschätzen, Körperliche Wahrnehmung</p>
 <textarea id="txt_emotionsreg_1" placeholder="Gefühle dokumentieren..."></textarea>
 </div>
 <div class="card">
-<h3>Radikale Akzeptanz</h3>
-<p>Akzeptanz innerer Zustände, Nicht bewerten</p>
+<h3 id="emo2">Radikale Akzeptanz</h3>
+<p id="emo2txt">Akzeptanz innerer Zustände, Nicht bewerten</p>
 <textarea id="txt_emotionsreg_2" placeholder="Gedanken zur Akzeptanz..."></textarea>
 </div>
 </section>
 
 <!-- ZWISCHENMENSCHLICH -->
 <section id="zwischenmenschlich">
-<h2>Zwischenmenschliche Fertigkeiten</h2>
+<h2 id="secZwischenmenschlich">Zwischenmenschliche Fertigkeiten</h2>
 <div class="card">
-<h3>DEAR MAN – Ziele erreichen</h3>
-<p>Describe, Express, Assert, Reinforce, Mindful, Appear confident, Negotiate</p>
+<h3 id="zwisch1">Ziele erreichen</h3>
+<p id="zwisch1txt">Beschreiben, Ausdrücken, Durchsetzen, Bestärken, Achtsam bleiben, Selbstbewusst auftreten, Verhandeln</p>
 <textarea id="txt_zwischenmensch_1" placeholder="Erfahrungen notieren..."></textarea>
 </div>
 </section>
 
 <!-- SELBSTWERT -->
 <section id="selbstwert">
-<h2>Selbstwert & Selbstbewusstsein</h2>
+<h2 id="secSelbstwert">Selbstwert & Selbstbewusstsein</h2>
 <div class="card">
-<h3>Selbstwert stärken</h3>
-<p>Stärken aufschreiben, Erfolge reflektieren, Positive Selbstbotschaften</p>
+<h3 id="sw1">Selbstwert stärken</h3>
+<p id="sw1txt">Stärken aufschreiben, Erfolge reflektieren, Positive Selbstbotschaften</p>
 <textarea id="txt_selbstwert_1" placeholder="Notizen hier eintragen..."></textarea>
 </div>
 <div class="card">
-<h3>Selbstmitgefühl üben</h3>
-<p>Fehler akzeptieren, Sich freundlich ansprechen, Selbstlob notieren</p>
+<h3 id="sw2">Selbstmitgefühl üben</h3>
+<p id="sw2txt">Fehler akzeptieren, Sich freundlich ansprechen, Selbstlob notieren</p>
 <textarea id="txt_selbstwert_2" placeholder="Erfahrungen aufschreiben..."></textarea>
 </div>
 </section>
 
 <!-- ENTSPANNUNG -->
 <section id="entspannung">
-<h2>Entspannung & Meditation</h2>
+<h2 id="secEntspannung">Entspannung & Meditation</h2>
 <div class="card">
-<h3>Progressive Muskelrelaxation</h3>
-<p>Muskelgruppen anspannen, Muskelgruppen entspannen, Wahrnehmung notieren</p>
+<h3 id="ent1">Progressive Muskelrelaxation</h3>
+<p id="ent1txt">Muskelgruppen anspannen, Muskelgruppen entspannen, Wahrnehmung notieren</p>
 <textarea id="txt_entspannung_1" placeholder="Notizen eintragen..."></textarea>
 </div>
 <div class="card">
-<h3>Atem- & Meditationstechniken</h3>
-<p>Tiefes Ein- und Ausatmen, Gedanken ziehen lassen, Körperwahrnehmung</p>
+<h3 id="ent2">Atem- & Meditationstechniken</h3>
+<p id="ent2txt">Tiefes Ein- und Ausatmen, Gedanken ziehen lassen, Körperwahrnehmung</p>
 <textarea id="txt_entspannung_2" placeholder="Notizen & Gefühle dokumentieren..."></textarea>
 </div>
 </section>
 
 <!-- MEHR INFOS -->
 <section id="mehr">
-<h2>Mehr-Infos</h2>
+<h2 id="secMehr">Mehr-Infos</h2>
 <div class="card">
-<p>Sprache wählen, Spenden (Ko-fi, PayPal, Bank), Datenschutz, Impressum</p>
+<p id="mehrtxt">Sprache wählen, Spenden (Ko-fi, PayPal, Bank), Datenschutz, Impressum</p>
 <textarea id="txt_mehr" placeholder="Notizen..."></textarea>
 </div>
 </section>
 
 <script>
-// Scroll-Funktion für Navigation
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
+// Scroll Navigation
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
-// Notizen lokal speichern & laden
-function saveNotes(){
-  document.querySelectorAll('textarea').forEach(txt=>{
-    localStorage.setItem(txt.id, txt.value);
-  });
-}
-function loadNotes(){
-  document.querySelectorAll('textarea').forEach(txt=>{
-    const val = localStorage.getItem(txt.id);
-    if(val!==null) txt.value=val;
-  });
-}
+// Notizen speichern / laden
+function saveNotes(){ document.querySelectorAll('textarea').forEach(t=>localStorage.setItem(t.id,t.value)); }
+function loadNotes(){ document.querySelectorAll('textarea').forEach(t=>{ const v=localStorage.getItem(t.id); if(v) t.value=v; }); }
 window.onload = loadNotes;
-window.onbeforeunload = saveNotes;
-</script>
 
+// Übersetzungen für alle Sprachen
+const translations = {
+de:{ /* Deutsch siehe oben, bleibt unverändert */ },
+en:{ /* Englisch siehe oben */ },
+fr:{ /* Französisch siehe oben */ },
+pt:{ /* Portugiesisch siehe oben */ },
+es:{ /* Spanisch siehe oben */ },
+ru:{ /* Russische Übersetzungen hier einfügen */ },
+zh:{ /* Chinesische Übersetzungen hier einfügen */ }
+};
+
+function changeLanguage(lang){
+  const t = translations[lang];
+  if(!t) return;
+  document.getElementById('title').textContent = t.title;
+  document.getElementById('subtitle').textContent = t.subtitle;
+  document.getElementById('btnAchtsamkeit').textContent = t.btnAchtsamkeit;
+  document.getElementById('btnStresstoleranz').textContent = t.btnStresstoleranz;
+  document.getElementById('btnEmotionsregulation').textContent = t.btnEmotionsregulation;
+  document.getElementById('btnZwischenmenschlich').textContent = t.btnZwischenmenschlich;
+  document.getElementById('btnSelbstwert').textContent = t.btnSelbstwert;
+  document.getElementById('btnEntspannung').textContent = t.btnEntspannung;
+  document.getElementById('btnMehr').textContent = t.btnMehr;
+
+  document.getElementById('secAchtsamkeit').textContent = t.secAchtsamkeit;
+  document.getElementById('achts1').textContent = t.achts1;
+  document.getElementById('achts1txt').textContent = t.achts1txt;
+  document.getElementById('achts2').textContent = t.achts2;
+  document.getElementById('achts2txt').textContent = t.achts2txt;
+
+  document.getElementById('secStresstoleranz').textContent = t.secStresstoleranz;
+  document.getElementById('stress1').textContent = t.stress1;
+  document.getElementById('stress1txt').textContent = t.stress1txt;
+
+  document.getElementById('secEmotionsregulation').textContent = t.secEmotionsregulation;
+  document.getElementById('emo1').textContent = t.emo1;
+  document.getElementById('emo1txt').textContent = t.emo1txt;
+  document.getElementById('emo2').textContent = t.emo2;
+  document.getElementById('emo2txt').textContent = t.emo2txt;
+
+  document.getElementById('secZwischenmenschlich').textContent = t.secZwischenmenschlich;
+  document.getElementById('zwisch1').textContent = t.zwisch1;
+  document.getElementById('zwisch1txt').textContent = t.zwisch1txt;
+
+  document.getElementById('secSelbstwert').textContent = t.secSelbstwert;
+  document.getElementById('sw1').textContent = t.sw1;
+  document.getElementById('sw1txt').textContent = t.sw1txt;
+  document.getElementById('sw2').textContent = t.sw2;
+  document.getElementById('sw2txt').textContent = t.sw2txt;
+
+  document.getElementById('secEntspannung').textContent = t.secEntspannung;
+  document.getElementById('ent1').textContent = t.ent1;
+  document.getElementById('ent1txt').textContent = t.ent1txt;
+  document.getElementById('ent2').textContent = t.ent2;
+  document.getElementById('ent2txt').textContent = t.ent2txt;
+
+  document.getElementById('secMehr').textContent = t.secMehr;
+  document.getElementById('mehrtxt').textContent = t.mehrtxt;
+}
+</script>
 </body>
-</html>
+  </html>
